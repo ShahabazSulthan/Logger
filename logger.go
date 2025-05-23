@@ -62,28 +62,28 @@ func InitializeLoggerLevel() {
 
 // Debug logs a message at DEBUG level.
 func Debug(args ...interface{}) {
-	if currentLogLevel >= DEBUG && logEnabled {
+	if currentLogLevel <= DEBUG && logEnabled {
 		log.Println("[DEBUG]", fmt.Sprint(args...))
 	}
 }
 
 // Info logs a message at INFO level.
 func Info(args ...interface{}) {
-	if currentLogLevel >= INFO && logEnabled {
+	if currentLogLevel <= INFO && logEnabled {
 		log.Println("[INFO]", fmt.Sprint(args...))
 	}
 }
 
 // Warn logs a message at WARN level.
 func Warn(args ...interface{}) {
-	if currentLogLevel >= WARN && logEnabled {
+	if currentLogLevel <= WARN && logEnabled {
 		log.Println("[WARN]", fmt.Sprint(args...))
 	}
 }
 
 // Error logs a message at ERROR level.
 func Error(args ...interface{}) {
-	if currentLogLevel >= ERROR && logEnabled {
+	if currentLogLevel <= ERROR && logEnabled {
 		log.Println("[ERROR]", fmt.Sprint(args...))
 	}
 }
