@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"strings"
@@ -59,26 +60,30 @@ func InitializeLoggerLevel() {
 	}
 }
 
-func Debug(format string, args ...interface{}) {
-	if currentLogLevel <= DEBUG && logEnabled {
-		log.Printf("[DEBUG] "+format, args...)
+// Debug logs a message at DEBUG level.
+func Debug(args ...interface{}) {
+	if currentLogLevel >= DEBUG && logEnabled {
+		log.Println("[DEBUG]", fmt.Sprint(args...))
 	}
 }
 
-func Info(format string, args ...interface{}) {
-	if currentLogLevel <= INFO && logEnabled {
-		log.Printf("[INFO] "+format, args...)
+// Info logs a message at INFO level.
+func Info(args ...interface{}) {
+	if currentLogLevel >= INFO && logEnabled {
+		log.Println("[INFO]", fmt.Sprint(args...))
 	}
 }
 
-func Warn(format string, args ...interface{}) {
-	if currentLogLevel <= WARN && logEnabled {
-		log.Printf("[WARN] "+format, args...)
+// Warn logs a message at WARN level.
+func Warn(args ...interface{}) {
+	if currentLogLevel >= WARN && logEnabled {
+		log.Println("[WARN]", fmt.Sprint(args...))
 	}
 }
 
-func Error(format string, args ...interface{}) {
-	if currentLogLevel <= ERROR && logEnabled {
-		log.Printf("[ERROR] "+format, args...)
+// Error logs a message at ERROR level.
+func Error(args ...interface{}) {
+	if currentLogLevel >= ERROR && logEnabled {
+		log.Println("[ERROR]", fmt.Sprint(args...))
 	}
 }
